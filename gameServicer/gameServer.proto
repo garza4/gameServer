@@ -1,0 +1,44 @@
+syntax="proto3";
+package gameServer;
+service gameService{
+	rpc Move(Direction) returns (Position){} 
+	rpc Attack(Magic) returns (Stamina){}
+	rpc Heal(Magic) returns (Health){}
+}
+
+message Direction{
+	int32 north = 1;
+	int32 south = 2;
+	int32 east = 3;
+	int32 west = 4;
+}
+
+message Position{
+	int32 xVal = 1;
+	int32 yVal = 2;
+}
+
+message Health{
+	int32 healthBar = 1;
+
+}
+
+message Magic{
+	int32 mana = 1;
+
+}
+
+message Stamina{
+	int32 stamina = 1;
+}
+
+message Pair{
+	string key = 1;
+	string value = 2;
+}
+
+message Bag{
+	repeated Pair equipment = 1;
+}
+
+
