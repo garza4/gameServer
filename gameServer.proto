@@ -1,0 +1,67 @@
+syntax = "proto3";
+package gameServer;
+service GameService{
+	//Move will be used to move a character around a 2d map
+	rpc Move(Direction) returns (Position) {}; 
+	
+
+	//attack will be a physical or magic attack and requires stamina or magic
+	rpc MagicAttack(Magic) returns (Magic) {};
+
+	//physical attack will be an attack with a weapon
+	rpc PhysicalAttack(Stamina) returns (Stamina){};
+
+	
+	//Heal will heal a character and has to be done with magic
+	rpc Heal(Magic) returns (Health) {};
+}
+
+
+//directions a player can move
+message Direction{
+	int32 north = 1;
+	int32 south = 2;
+	int32 east = 3;
+	int32 west = 4;
+}
+
+//position of the player in the world
+message Position{
+	int32 xVal = 1;
+	int32 yVal = 2;
+}
+
+
+//health status
+message Health{
+	int32 healthBar = 1;
+
+}
+
+
+//how much magic a player has
+message Magic{
+	int32 mana = 1;
+
+}
+
+
+//how much stamina a player has
+message Stamina{
+	int32 stamina = 1;
+}
+
+
+//pair to make a dictionary
+message Pair{
+	string key = 1;
+	string value = 2;
+}
+
+
+//a dictionary of items or the players bag on their adventure
+message Bag{
+	repeated Pair equipment = 1;
+}
+
+
