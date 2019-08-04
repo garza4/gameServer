@@ -1,5 +1,10 @@
 # RPG Game Server
 
+## Microservice Based
+
+The server is made using microservices which keeps the server light-weight and easily accessible to other languages and technologies. The server will also be easy to deploy to the users host of choice. GCP, AWS, and more will be available.      
+
+
 ## Flexible API
 
 This game server will be an easy way to deploy a multiplayer server where gameplay is based around RPG style games such as Skyrim, Dark Souls, Final Fantasy and many others. 
