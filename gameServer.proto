@@ -14,6 +14,16 @@ service GameService{
 	
 	//Heal will heal a character and has to be done with magic
 	rpc Heal(Magic) returns (Health) {};
+
+	rpc DamageCalculation(Player) returns (Attack){};
+}
+
+
+//the player object will have actions affect his/her stats.
+message Player{
+	int32 health = 1;
+	int32 stamina = 2;
+	int32 mana = 3;
 }
 
 
@@ -50,6 +60,14 @@ message Magic{
 message Stamina{
 	int32 stamina = 1;
 }
+
+message Attack{
+	int32 damage = 1;
+	
+}
+
+	
+
 
 
 //pair to make a dictionary

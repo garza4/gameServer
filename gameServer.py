@@ -5,24 +5,39 @@ import logging
 from concurrent import futures
 
 
-class Player:
-    def __init__(self,health,mana):
-        self.health = health
-        self.mana = mana
-
 class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     
-  def Move(self, request, context):
-      print(self.North)
-    
-  def PhysicalAttack(self,request,context):
-      print("attack!")
 
-  def MagicAttack(self,request,context):
-      print("magic attack!")
+    def Move(self, request, context):
+        #North
+        if self.Direction == 1:
+            self.Position.yval += 1
+        #South
+        if self.Direction == -1:
+            self.Position.yval -= 1
+        #East
+        if self.Directions == 3:
+            self.Direction.xval += 1
+        #West
+        if self.Direction == 4:
+            self.Position -= 1
+             
+
+    def PhysicalAttack(self,request,context):
+        self.Player.stamina -= request.Stamina
+
+    def MagicAttack(self,request,context):
+        self.Player.mana -= request.Mana
+        print("magic attack!")
     
-  def Heal(self,request,context):
-      print("Restoring Health ---")
+    #use magic, gain health
+    def Heal(self,request,context):
+        self.Player.mana -= self.Mana
+        self.Player.health += self.Health
+        print("Restoring Health ---")
+    #do damage to a given player
+    def DamageCalculation(self,request,context):
+        self.Player.health -= request.Attack
 
 def serve():
     server = grpc.server(futures.ThreadPoolExeccutor(max_workers=10))

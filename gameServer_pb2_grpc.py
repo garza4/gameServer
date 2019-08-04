@@ -34,6 +34,11 @@ class GameServiceStub(object):
         request_serializer=gameServer__pb2.Magic.SerializeToString,
         response_deserializer=gameServer__pb2.Health.FromString,
         )
+    self.DamageCalculation = channel.unary_unary(
+        '/gameServer.GameService/DamageCalculation',
+        request_serializer=gameServer__pb2.Player.SerializeToString,
+        response_deserializer=gameServer__pb2.Attack.FromString,
+        )
 
 
 class GameServiceServicer(object):
@@ -68,6 +73,13 @@ class GameServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def DamageCalculation(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_GameServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -90,6 +102,11 @@ def add_GameServiceServicer_to_server(servicer, server):
           servicer.Heal,
           request_deserializer=gameServer__pb2.Magic.FromString,
           response_serializer=gameServer__pb2.Health.SerializeToString,
+      ),
+      'DamageCalculation': grpc.unary_unary_rpc_method_handler(
+          servicer.DamageCalculation,
+          request_deserializer=gameServer__pb2.Player.FromString,
+          response_serializer=gameServer__pb2.Attack.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

@@ -1,6 +1,0 @@
-import logging
-import grpc
-import gameServer_pb2
-import gameServer_pb2_grcp
-
-print("client")

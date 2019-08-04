@@ -20,10 +20,55 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='gameServer',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10gameServer.proto\x12\ngameServer\"E\n\tDirection\x12\r\n\x05north\x18\x01 \x01(\x05\x12\r\n\x05south\x18\x02 \x01(\x05\x12\x0c\n\x04\x65\x61st\x18\x03 \x01(\x05\x12\x0c\n\x04west\x18\x04 \x01(\x05\"&\n\x08Position\x12\x0c\n\x04xVal\x18\x01 \x01(\x05\x12\x0c\n\x04yVal\x18\x02 \x01(\x05\"\x1b\n\x06Health\x12\x11\n\thealthBar\x18\x01 \x01(\x05\"\x15\n\x05Magic\x12\x0c\n\x04mana\x18\x01 \x01(\x05\"\x1a\n\x07Stamina\x12\x0f\n\x07stamina\x18\x01 \x01(\x05\"\"\n\x04Pair\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"*\n\x03\x42\x61g\x12#\n\tequipment\x18\x01 \x03(\x0b\x32\x10.gameServer.Pair2\xea\x01\n\x0bGameService\x12\x35\n\x04Move\x12\x15.gameServer.Direction\x1a\x14.gameServer.Position\"\x00\x12\x35\n\x0bMagicAttack\x12\x11.gameServer.Magic\x1a\x11.gameServer.Magic\"\x00\x12<\n\x0ePhysicalAttack\x12\x13.gameServer.Stamina\x1a\x13.gameServer.Stamina\"\x00\x12/\n\x04Heal\x12\x11.gameServer.Magic\x1a\x12.gameServer.Health\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x10gameServer.proto\x12\ngameServer\"7\n\x06Player\x12\x0e\n\x06health\x18\x01 \x01(\x05\x12\x0f\n\x07stamina\x18\x02 \x01(\x05\x12\x0c\n\x04mana\x18\x03 \x01(\x05\"E\n\tDirection\x12\r\n\x05north\x18\x01 \x01(\x05\x12\r\n\x05south\x18\x02 \x01(\x05\x12\x0c\n\x04\x65\x61st\x18\x03 \x01(\x05\x12\x0c\n\x04west\x18\x04 \x01(\x05\"&\n\x08Position\x12\x0c\n\x04xVal\x18\x01 \x01(\x05\x12\x0c\n\x04yVal\x18\x02 \x01(\x05\"\x1b\n\x06Health\x12\x11\n\thealthBar\x18\x01 \x01(\x05\"\x15\n\x05Magic\x12\x0c\n\x04mana\x18\x01 \x01(\x05\"\x1a\n\x07Stamina\x12\x0f\n\x07stamina\x18\x01 \x01(\x05\"\x18\n\x06\x41ttack\x12\x0e\n\x06\x64\x61mage\x18\x01 \x01(\x05\"\"\n\x04Pair\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"*\n\x03\x42\x61g\x12#\n\tequipment\x18\x01 \x03(\x0b\x32\x10.gameServer.Pair2\xa9\x02\n\x0bGameService\x12\x35\n\x04Move\x12\x15.gameServer.Direction\x1a\x14.gameServer.Position\"\x00\x12\x35\n\x0bMagicAttack\x12\x11.gameServer.Magic\x1a\x11.gameServer.Magic\"\x00\x12<\n\x0ePhysicalAttack\x12\x13.gameServer.Stamina\x1a\x13.gameServer.Stamina\"\x00\x12/\n\x04Heal\x12\x11.gameServer.Magic\x1a\x12.gameServer.Health\"\x00\x12=\n\x11\x44\x61mageCalculation\x12\x12.gameServer.Player\x1a\x12.gameServer.Attack\"\x00\x62\x06proto3')
 )
 
 
+
+
+_PLAYER = _descriptor.Descriptor(
+  name='Player',
+  full_name='gameServer.Player',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='health', full_name='gameServer.Player.health', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='stamina', full_name='gameServer.Player.stamina', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='mana', full_name='gameServer.Player.mana', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=32,
+  serialized_end=87,
+)
 
 
 _DIRECTION = _descriptor.Descriptor(
@@ -73,8 +118,8 @@ _DIRECTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=32,
-  serialized_end=101,
+  serialized_start=89,
+  serialized_end=158,
 )
 
 
@@ -111,8 +156,8 @@ _POSITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=103,
-  serialized_end=141,
+  serialized_start=160,
+  serialized_end=198,
 )
 
 
@@ -142,8 +187,8 @@ _HEALTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=143,
-  serialized_end=170,
+  serialized_start=200,
+  serialized_end=227,
 )
 
 
@@ -173,8 +218,8 @@ _MAGIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=172,
-  serialized_end=193,
+  serialized_start=229,
+  serialized_end=250,
 )
 
 
@@ -204,8 +249,39 @@ _STAMINA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=195,
-  serialized_end=221,
+  serialized_start=252,
+  serialized_end=278,
+)
+
+
+_ATTACK = _descriptor.Descriptor(
+  name='Attack',
+  full_name='gameServer.Attack',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='damage', full_name='gameServer.Attack.damage', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=280,
+  serialized_end=304,
 )
 
 
@@ -242,8 +318,8 @@ _PAIR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=223,
-  serialized_end=257,
+  serialized_start=306,
+  serialized_end=340,
 )
 
 
@@ -273,19 +349,28 @@ _BAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=259,
-  serialized_end=301,
+  serialized_start=342,
+  serialized_end=384,
 )
 
 _BAG.fields_by_name['equipment'].message_type = _PAIR
+DESCRIPTOR.message_types_by_name['Player'] = _PLAYER
 DESCRIPTOR.message_types_by_name['Direction'] = _DIRECTION
 DESCRIPTOR.message_types_by_name['Position'] = _POSITION
 DESCRIPTOR.message_types_by_name['Health'] = _HEALTH
 DESCRIPTOR.message_types_by_name['Magic'] = _MAGIC
 DESCRIPTOR.message_types_by_name['Stamina'] = _STAMINA
+DESCRIPTOR.message_types_by_name['Attack'] = _ATTACK
 DESCRIPTOR.message_types_by_name['Pair'] = _PAIR
 DESCRIPTOR.message_types_by_name['Bag'] = _BAG
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Player = _reflection.GeneratedProtocolMessageType('Player', (_message.Message,), {
+  'DESCRIPTOR' : _PLAYER,
+  '__module__' : 'gameServer_pb2'
+  # @@protoc_insertion_point(class_scope:gameServer.Player)
+  })
+_sym_db.RegisterMessage(Player)
 
 Direction = _reflection.GeneratedProtocolMessageType('Direction', (_message.Message,), {
   'DESCRIPTOR' : _DIRECTION,
@@ -322,6 +407,13 @@ Stamina = _reflection.GeneratedProtocolMessageType('Stamina', (_message.Message,
   })
 _sym_db.RegisterMessage(Stamina)
 
+Attack = _reflection.GeneratedProtocolMessageType('Attack', (_message.Message,), {
+  'DESCRIPTOR' : _ATTACK,
+  '__module__' : 'gameServer_pb2'
+  # @@protoc_insertion_point(class_scope:gameServer.Attack)
+  })
+_sym_db.RegisterMessage(Attack)
+
 Pair = _reflection.GeneratedProtocolMessageType('Pair', (_message.Message,), {
   'DESCRIPTOR' : _PAIR,
   '__module__' : 'gameServer_pb2'
@@ -344,8 +436,8 @@ _GAMESERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=304,
-  serialized_end=538,
+  serialized_start=387,
+  serialized_end=684,
   methods=[
   _descriptor.MethodDescriptor(
     name='Move',
@@ -381,6 +473,15 @@ _GAMESERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_MAGIC,
     output_type=_HEALTH,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DamageCalculation',
+    full_name='gameServer.GameService.DamageCalculation',
+    index=4,
+    containing_service=None,
+    input_type=_PLAYER,
+    output_type=_ATTACK,
     serialized_options=None,
   ),
 ])
