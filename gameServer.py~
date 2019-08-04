@@ -4,21 +4,25 @@ import grpc
 import logging
 from concurrent import futures
 
-class GameServiceServer(gameServer_pb2_grpc.gameServiceServer):
-    print("something")
-    
 
-    def Move(self, request, context):
-        print(self.North)
-    
-    def PhysicalAttack(self,request,context):
-        print("attack!")
+class Player:
+    def __init__(self,health,mana):
+        self.health = health
+        self.mana = mana
 
-    def MagicAttack(self,request,context):
-        print("magic attack!")
+class GameServiceServer(gameServer_pb2_grpc.GameServiceServer):
     
-    def Heal(self,request,context):
-        print("Restoring Health ---")
+  def Move(self, request, context):
+      print(self.North)
+    
+  def PhysicalAttack(self,request,context):
+      print("attack!")
+
+  def MagicAttack(self,request,context):
+      print("magic attack!")
+    
+  def Heal(self,request,context):
+      print("Restoring Health ---")
 
 def serve():
     server = grpc.server(futures.ThreadPoolExeccutor(max_workers=10))
@@ -28,6 +32,8 @@ def serve():
 
 
 if __name__ == "main":
-    print(GameServer())
+    dog = gameServer_pb2_grpc()
+    print(dog)
+    print("something")
     logging.basicConfig()
     serve()
