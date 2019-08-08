@@ -4,9 +4,17 @@ import grpc
 import logging
 from concurrent import futures
 
+def updateMagic(player,magic):
+    magicOutput = gameServer_pb2_grpc.MagicAttack(magic)
+    player.mana -= magicOutput
+    return player.mana
+ 
+
 
 class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     
+    def __init__(self):
+        self.db = gameServer
 
     def Move(self, request, context):
         #North
@@ -24,7 +32,7 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
              
 
     def PhysicalAttack(self,request,context):
-        self.Player.stamina -= request.Stamina
+        request.stamina -= request.Stamina
 
     def MagicAttack(self,request,context):
         self.Player.mana -= request.Mana
@@ -47,8 +55,5 @@ def serve():
 
 
 if __name__ == "main":
-    dog = gameServer_pb2_grpc()
-    print(dog)
-    print("something")
     logging.basicConfig()
     serve()
