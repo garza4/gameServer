@@ -15,7 +15,7 @@ def createPlayer(stub,mana, health, stamina):
     return player
 
 def gameMagicAttack(stub,player,reqMagic):
-    player.mana -= stub.MagicAttack(reqMagic).mana
+    player.mana -= stub.MagicAttack(reqMagic)
     #player.mana -= magic 
     return player
 

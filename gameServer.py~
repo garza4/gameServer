@@ -28,7 +28,7 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
         request.stamina -= request.Stamina
 
     def MagicAttack(self,request,context):
-        return request
+        return request.mana
     #print("magic attack!")
     
     #use magic, gain health
