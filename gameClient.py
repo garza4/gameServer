@@ -7,16 +7,18 @@ import grpc
 #stub = gameServer_pb2_grpc.GameServiceStub(channel)
 
 
-def createPlayer(stub,mana, health, stamina):
+def createPlayer(mana, health, stamina,level,exp):
     player = gameServer_pb2.Player()
     player.mana = mana
     player.health = health
     player.stamina = stamina
+    player.level = level
+    print(player.level)
+    player.exp = exp
     return player
 
 def gameMagicAttack(stub,player,reqMagic):
-    player.mana -= stub.MagicAttack(reqMagic).mana
-    #player.mana -= magic 
+    player.mana = stub.MagicAttack(player).mana
     return player
 
 
@@ -26,7 +28,7 @@ def run():
         stub = gameServer_pb2_grpc.GameServiceStub(channel)
         magic = gameServer_pb2.Magic()
         magic.mana = 4
-        player1 = createPlayer(stub,10,10,10)
+        player1 = createPlayer(10,10,20,1,0)
         print(gameMagicAttack(stub,player1,magic))
         spellbook = {"Fireball" : 5, "Regenerate":5}
         

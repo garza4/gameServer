@@ -3,6 +3,8 @@ import gameServer_pb2_grpc
 import grpc
 import logging
 import time
+import math
+import copy
 from concurrent import futures
 
  
@@ -28,8 +30,12 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
         request.stamina -= request.Stamina
 
     def MagicAttack(self,request,context):
-        return request.mana
-    #print("magic attack!")
+        player = copy.copy(request)
+        print(request.level)
+        player.mana = math.sqrt(request.mana) + (request.level / request.stamina) 
+        print("Damage done was - ", player.mana, "!")
+        return player
+    
     
     #use magic, gain health
     def Heal(self,request,context):

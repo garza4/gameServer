@@ -6,7 +6,7 @@ service GameService{
 	
 
 	//attack will be a physical or magic attack and requires stamina or magic
-	rpc MagicAttack(Player) returns (Player) {};
+	rpc MagicAttack(Magic) returns (Player) {};
 
 	//physical attack will be an attack with a weapon
 	rpc PhysicalAttack(Stamina) returns (Stamina){};
