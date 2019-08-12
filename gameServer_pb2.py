@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='gameServer',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10gameServer.proto\x12\ngameServer\"\xbb\x01\n\x06Player\x12\x0e\n\x06health\x18\x01 \x01(\x05\x12\x0f\n\x07stamina\x18\x02 \x01(\x05\x12\x0c\n\x04mana\x18\x03 \x01(\x05\x12\x34\n\tspellbook\x18\x04 \x03(\x0b\x32!.gameServer.Player.SpellbookEntry\x12\r\n\x05level\x18\x05 \x01(\x05\x12\x0b\n\x03\x65xp\x18\x06 \x01(\x02\x1a\x30\n\x0eSpellbookEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"E\n\tDirection\x12\r\n\x05north\x18\x01 \x01(\x05\x12\r\n\x05south\x18\x02 \x01(\x05\x12\x0c\n\x04\x65\x61st\x18\x03 \x01(\x05\x12\x0c\n\x04west\x18\x04 \x01(\x05\"&\n\x08Position\x12\x0c\n\x04xVal\x18\x01 \x01(\x05\x12\x0c\n\x04yVal\x18\x02 \x01(\x05\"\x1b\n\x06Health\x12\x11\n\thealthBar\x18\x01 \x01(\x05\"\x15\n\x05Magic\x12\x0c\n\x04mana\x18\x01 \x01(\x05\"\x1a\n\x07Stamina\x12\x0f\n\x07stamina\x18\x01 \x01(\x05\"\x18\n\x06\x41ttack\x12\x0e\n\x06\x64\x61mage\x18\x01 \x01(\x05\"v\n\tSpellBook\x12\x37\n\tspellbook\x18\x01 \x03(\x0b\x32$.gameServer.SpellBook.SpellbookEntry\x1a\x30\n\x0eSpellbookEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"\"\n\x04Pair\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"*\n\x03\x42\x61g\x12#\n\tequipment\x18\x01 \x03(\x0b\x32\x10.gameServer.Pair2\xec\x01\n\x0bGameService\x12\x35\n\x04Move\x12\x15.gameServer.Direction\x1a\x14.gameServer.Position\"\x00\x12\x37\n\x0bMagicAttack\x12\x12.gameServer.Player\x1a\x12.gameServer.Player\"\x00\x12<\n\x0ePhysicalAttack\x12\x13.gameServer.Stamina\x1a\x13.gameServer.Stamina\"\x00\x12/\n\x04Heal\x12\x11.gameServer.Magic\x1a\x12.gameServer.Health\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x10gameServer.proto\x12\ngameServer\"\xd7\x01\n\x06Player\x12\x0e\n\x06health\x18\x01 \x01(\x05\x12\x0f\n\x07stamina\x18\x02 \x01(\x05\x12\x0c\n\x04mana\x18\x03 \x01(\x05\x12\x34\n\tspellbook\x18\x04 \x03(\x0b\x32!.gameServer.Player.SpellbookEntry\x12\r\n\x05level\x18\x05 \x01(\x05\x12\x0b\n\x03\x65xp\x18\x06 \x01(\x02\x12\x0c\n\x04xVal\x18\x07 \x01(\x05\x12\x0c\n\x04yVal\x18\x08 \x01(\x05\x1a\x30\n\x0eSpellbookEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"5\n\tDirection\x12\x13\n\x0bx_direction\x18\x01 \x01(\t\x12\x13\n\x0by_direction\x18\x02 \x01(\t\"2\n\x08Position\x12\x12\n\nx_position\x18\x01 \x01(\x05\x12\x12\n\ny_position\x18\x02 \x01(\x05\"\x1b\n\x06Health\x12\x11\n\thealthBar\x18\x01 \x01(\x05\"\x15\n\x05Magic\x12\x0c\n\x04mana\x18\x01 \x01(\x05\"\x1a\n\x07Stamina\x12\x0f\n\x07stamina\x18\x01 \x01(\x05\"\x18\n\x06\x41ttack\x12\x0e\n\x06\x64\x61mage\x18\x01 \x01(\x05\"v\n\tSpellBook\x12\x37\n\tspellbook\x18\x01 \x03(\x0b\x32$.gameServer.SpellBook.SpellbookEntry\x1a\x30\n\x0eSpellbookEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"\"\n\x04Pair\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"*\n\x03\x42\x61g\x12#\n\tequipment\x18\x01 \x03(\x0b\x32\x10.gameServer.Pair2\xeb\x01\n\x0bGameService\x12\x35\n\x04Move\x12\x15.gameServer.Direction\x1a\x14.gameServer.Position\"\x00\x12\x37\n\x0bMagicAttack\x12\x12.gameServer.Player\x1a\x12.gameServer.Player\"\x00\x12:\n\x0ePhysicalAttack\x12\x12.gameServer.Player\x1a\x12.gameServer.Player\"\x00\x12\x30\n\x04Heal\x12\x12.gameServer.Player\x1a\x12.gameServer.Player\"\x00\x62\x06proto3')
 )
 
 
@@ -59,8 +59,8 @@ _PLAYER_SPELLBOOKENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=172,
-  serialized_end=220,
+  serialized_start=200,
+  serialized_end=248,
 )
 
 _PLAYER = _descriptor.Descriptor(
@@ -112,6 +112,20 @@ _PLAYER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='xVal', full_name='gameServer.Player.xVal', index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='yVal', full_name='gameServer.Player.yVal', index=7,
+      number=8, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -125,7 +139,7 @@ _PLAYER = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=33,
-  serialized_end=220,
+  serialized_end=248,
 )
 
 
@@ -137,30 +151,16 @@ _DIRECTION = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='north', full_name='gameServer.Direction.north', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='x_direction', full_name='gameServer.Direction.x_direction', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='south', full_name='gameServer.Direction.south', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='east', full_name='gameServer.Direction.east', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='west', full_name='gameServer.Direction.west', index=3,
-      number=4, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='y_direction', full_name='gameServer.Direction.y_direction', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -176,8 +176,8 @@ _DIRECTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=222,
-  serialized_end=291,
+  serialized_start=250,
+  serialized_end=303,
 )
 
 
@@ -189,14 +189,14 @@ _POSITION = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='xVal', full_name='gameServer.Position.xVal', index=0,
+      name='x_position', full_name='gameServer.Position.x_position', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='yVal', full_name='gameServer.Position.yVal', index=1,
+      name='y_position', full_name='gameServer.Position.y_position', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -214,8 +214,8 @@ _POSITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=293,
-  serialized_end=331,
+  serialized_start=305,
+  serialized_end=355,
 )
 
 
@@ -245,8 +245,8 @@ _HEALTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=333,
-  serialized_end=360,
+  serialized_start=357,
+  serialized_end=384,
 )
 
 
@@ -276,8 +276,8 @@ _MAGIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=362,
-  serialized_end=383,
+  serialized_start=386,
+  serialized_end=407,
 )
 
 
@@ -307,8 +307,8 @@ _STAMINA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=385,
-  serialized_end=411,
+  serialized_start=409,
+  serialized_end=435,
 )
 
 
@@ -338,8 +338,8 @@ _ATTACK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=413,
-  serialized_end=437,
+  serialized_start=437,
+  serialized_end=461,
 )
 
 
@@ -376,8 +376,8 @@ _SPELLBOOK_SPELLBOOKENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=172,
-  serialized_end=220,
+  serialized_start=200,
+  serialized_end=248,
 )
 
 _SPELLBOOK = _descriptor.Descriptor(
@@ -406,8 +406,8 @@ _SPELLBOOK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=439,
-  serialized_end=557,
+  serialized_start=463,
+  serialized_end=581,
 )
 
 
@@ -444,8 +444,8 @@ _PAIR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=559,
-  serialized_end=593,
+  serialized_start=583,
+  serialized_end=617,
 )
 
 
@@ -475,8 +475,8 @@ _BAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=595,
-  serialized_end=637,
+  serialized_start=619,
+  serialized_end=661,
 )
 
 _PLAYER_SPELLBOOKENTRY.containing_type = _PLAYER
@@ -592,8 +592,8 @@ _GAMESERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=640,
-  serialized_end=876,
+  serialized_start=664,
+  serialized_end=899,
   methods=[
   _descriptor.MethodDescriptor(
     name='Move',
@@ -618,8 +618,8 @@ _GAMESERVICE = _descriptor.ServiceDescriptor(
     full_name='gameServer.GameService.PhysicalAttack',
     index=2,
     containing_service=None,
-    input_type=_STAMINA,
-    output_type=_STAMINA,
+    input_type=_PLAYER,
+    output_type=_PLAYER,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -627,8 +627,8 @@ _GAMESERVICE = _descriptor.ServiceDescriptor(
     full_name='gameServer.GameService.Heal',
     index=3,
     containing_service=None,
-    input_type=_MAGIC,
-    output_type=_HEALTH,
+    input_type=_PLAYER,
+    output_type=_PLAYER,
     serialized_options=None,
   ),
 ])

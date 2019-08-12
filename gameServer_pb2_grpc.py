@@ -26,13 +26,13 @@ class GameServiceStub(object):
         )
     self.PhysicalAttack = channel.unary_unary(
         '/gameServer.GameService/PhysicalAttack',
-        request_serializer=gameServer__pb2.Stamina.SerializeToString,
-        response_deserializer=gameServer__pb2.Stamina.FromString,
+        request_serializer=gameServer__pb2.Player.SerializeToString,
+        response_deserializer=gameServer__pb2.Player.FromString,
         )
     self.Heal = channel.unary_unary(
         '/gameServer.GameService/Heal',
-        request_serializer=gameServer__pb2.Magic.SerializeToString,
-        response_deserializer=gameServer__pb2.Health.FromString,
+        request_serializer=gameServer__pb2.Player.SerializeToString,
+        response_deserializer=gameServer__pb2.Player.FromString,
         )
 
 
@@ -83,13 +83,13 @@ def add_GameServiceServicer_to_server(servicer, server):
       ),
       'PhysicalAttack': grpc.unary_unary_rpc_method_handler(
           servicer.PhysicalAttack,
-          request_deserializer=gameServer__pb2.Stamina.FromString,
-          response_serializer=gameServer__pb2.Stamina.SerializeToString,
+          request_deserializer=gameServer__pb2.Player.FromString,
+          response_serializer=gameServer__pb2.Player.SerializeToString,
       ),
       'Heal': grpc.unary_unary_rpc_method_handler(
           servicer.Heal,
-          request_deserializer=gameServer__pb2.Magic.FromString,
-          response_serializer=gameServer__pb2.Health.SerializeToString,
+          request_deserializer=gameServer__pb2.Player.FromString,
+          response_serializer=gameServer__pb2.Player.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

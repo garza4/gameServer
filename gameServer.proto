@@ -9,11 +9,11 @@ service GameService{
 	rpc MagicAttack(Player) returns (Player) {};
 
 	//physical attack will be an attack with a weapon
-	rpc PhysicalAttack(Stamina) returns (Stamina){};
+	rpc PhysicalAttack(Player) returns (Player){};
 
 	
 	//Heal will heal a character and has to be done with magic
-	rpc Heal(Magic) returns (Health) {};
+	rpc Heal(Player) returns (Player) {};
 
 	//rpc DamageCalculation(Player) returns (Attack){};
 }
@@ -27,21 +27,19 @@ message Player{
 	map<string,int32> spellbook = 4;
 	int32 level = 5;
 	float exp = 6;
+	int32 xVal = 7;
+	int32 yVal = 8;
 }
 
 
-//directions a player can move
+//direction input for a  player. use to 
 message Direction{
-	int32 north = 1;
-	int32 south = 2;
-	int32 east = 3;
-	int32 west = 4;
+	string x_direction = 1;
+	string y_direction = 2;
 }
-
-//position of the player in the world
 message Position{
-	int32 xVal = 1;
-	int32 yVal = 2;
+	int32 x_position = 1;
+	int32 y_position = 2;
 }
 
 

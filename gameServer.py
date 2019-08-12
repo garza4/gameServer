@@ -12,26 +12,35 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     
 
     def Move(self, request, context):
-        #North
-        if self.Direction == 1:
-            self.Position.yval += 1
-        #South
-        if self.Direction == -1:
-            self.Position.yval -= 1
-        #East
-        if self.Directions == 3:
-            self.Direction.xval += 1
-        #West
-        if self.Direction == 4:
-            self.Position -= 1
-             
+        position = gameServer_pb2.Position()
+        if request.x_direction == "North":
+            position.x_position += 1
+        if request.x_direction == "South":
+            position.x_direction -= 1
+        if request.x_direction == "East":
+            position.x_direction += 1
+        if request.x_direction == "West":
+            position.x_direction -= 1
+        
+        if request.y_direction == "North":
+            position.y_position += 1
+        if request.y_direction == "South":
+            position.y_direction -= 1
+        if request.y_direction == "East":
+            position.y_direction += 1
+        if request.y_direction == "West":
+            position.y_direction -= 1
+        print(position)
+        return position
+
 
     def PhysicalAttack(self,request,context):
-        request.stamina -= request.Stamina
+        player  = copy,copy(request)
+        player.stamina -= int(request.stamina / request.level)
+        return player
 
     def MagicAttack(self,request,context):
         player = copy.copy(request)
-        print(request.level)
         player.mana = int(math.sqrt(request.mana) + (request.level / request.stamina)) 
         print("Damage done was - ", player.mana, "!")
         return player
@@ -39,8 +48,11 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     
     #use magic, gain health
     def Heal(self,request,context):
-        request.Player.mana -= request.Mana
-        request.Player.health += request.Health
+        print(dir(request))
+        player = copy.copy(request)
+        player.mana -= int((request.mana / request.level) + request.stamina)
+        player.health += int(math.sqrt(player.level) + request.stamina)
+        return player
         print("Restoring Health ---")
     #do damage to a given player
     def DamageCalculation(self,request,context):
