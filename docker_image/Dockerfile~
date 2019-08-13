@@ -1,0 +1,4 @@
+FROM python:3
+ADD gameServer.py /
+RUN pip install pystrich
+CMD [ "python", "./gameServer.py"]

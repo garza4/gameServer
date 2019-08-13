@@ -2,7 +2,7 @@ syntax = "proto3";
 package gameServer;
 service GameService{
 	//Move will be used to move a character around a 2d map
-	rpc Move(Direction) returns (Position) {}; 
+	rpc Move(stream Direction) returns (stream Position) {}; 
 	
 
 	//attack will be a physical or magic attack and requires stamina or magic
@@ -29,10 +29,11 @@ message Player{
 	float exp = 6;
 	int32 xVal = 7;
 	int32 yVal = 8;
+	string name = 9;
 }
 
 
-//direction input for a  player. use to 
+//direction input for a  player 
 message Direction{
 	string x_direction = 1;
 	string y_direction = 2;
