@@ -2,7 +2,7 @@ syntax = "proto3";
 package gameServer;
 service GameService{
 	//Move will be used to move a character around a 2d map
-	rpc Move(stream Direction) returns (stream Position) {}; 
+	rpc Move(Direction) returns (Position) {}; 
 	
 
 	//attack will be a physical or magic attack and requires stamina or magic
@@ -17,6 +17,9 @@ service GameService{
 
 	//rpc DamageCalculation(Player) returns (Attack){};
 }
+
+
+message Empty {}
 
 
 //the player object will have actions affect his/her stats.

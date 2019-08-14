@@ -11,29 +11,27 @@ from concurrent import futures
 class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     
 
-    def Move(self, request_iterator, context):
-        direction_stack = []
-        direction_stack.append(request_iterator)
-        for player_input in direction_stack:
-            position = gameServer_pb2.Position()
-            if player_input.x_direction == "North":
-                position.x_position += 1
-            if player_input.x_direction == "South":
-                position.x_direction -= 1
-            if player_input.x_direction == "East":
-                position.x_direction += 1
-            if player_input.x_direction == "West":
-                position.x_direction -= 1
+    def Move(self, request, context):
         
-            if player_input.y_direction == "North":
-                position.y_position += 1
-            if player_input.y_direction == "South":
-                position.y_direction -= 1
-            if player_input.y_direction == "East":
-                position.y_direction += 1
-            if player_input.y_direction == "West":
-                position.y_direction -= 1
-            return position
+        position = gameServer_pb2.Position()
+        if request.x_direction == "North":
+            position.x_position += 1
+        if request.x_direction == "South":
+            position.x_position -= 1
+        if request.x_direction == "East":
+            position.x_position += 1
+        if request.x_direction == "West":
+            position.x_position -= 1
+        
+        if request.y_direction == "North":
+            position.y_position += 1
+        if request.y_direction == "South":
+            position.y_position -= 1
+        if request.y_direction == "East":
+            position.y_position += 1
+        if request.y_direction == "West":
+            position.y_position -= 1
+        return position
 
 
     def PhysicalAttack(self,request,context):

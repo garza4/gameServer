@@ -20,10 +20,34 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='gameServer',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10gameServer.proto\x12\ngameServer\"\xe5\x01\n\x06Player\x12\x0e\n\x06health\x18\x01 \x01(\x05\x12\x0f\n\x07stamina\x18\x02 \x01(\x05\x12\x0c\n\x04mana\x18\x03 \x01(\x05\x12\x34\n\tspellbook\x18\x04 \x03(\x0b\x32!.gameServer.Player.SpellbookEntry\x12\r\n\x05level\x18\x05 \x01(\x05\x12\x0b\n\x03\x65xp\x18\x06 \x01(\x02\x12\x0c\n\x04xVal\x18\x07 \x01(\x05\x12\x0c\n\x04yVal\x18\x08 \x01(\x05\x12\x0c\n\x04name\x18\t \x01(\t\x1a\x30\n\x0eSpellbookEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"5\n\tDirection\x12\x13\n\x0bx_direction\x18\x01 \x01(\t\x12\x13\n\x0by_direction\x18\x02 \x01(\t\"2\n\x08Position\x12\x12\n\nx_position\x18\x01 \x01(\x05\x12\x12\n\ny_position\x18\x02 \x01(\x05\"\x1b\n\x06Health\x12\x11\n\thealthBar\x18\x01 \x01(\x05\"\x15\n\x05Magic\x12\x0c\n\x04mana\x18\x01 \x01(\x05\"\x1a\n\x07Stamina\x12\x0f\n\x07stamina\x18\x01 \x01(\x05\"\x18\n\x06\x41ttack\x12\x0e\n\x06\x64\x61mage\x18\x01 \x01(\x05\"v\n\tSpellBook\x12\x37\n\tspellbook\x18\x01 \x03(\x0b\x32$.gameServer.SpellBook.SpellbookEntry\x1a\x30\n\x0eSpellbookEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"\"\n\x04Pair\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"*\n\x03\x42\x61g\x12#\n\tequipment\x18\x01 \x03(\x0b\x32\x10.gameServer.Pair2\xeb\x01\n\x0bGameService\x12\x35\n\x04Move\x12\x15.gameServer.Direction\x1a\x14.gameServer.Position\"\x00\x12\x37\n\x0bMagicAttack\x12\x12.gameServer.Player\x1a\x12.gameServer.Player\"\x00\x12:\n\x0ePhysicalAttack\x12\x12.gameServer.Player\x1a\x12.gameServer.Player\"\x00\x12\x30\n\x04Heal\x12\x12.gameServer.Player\x1a\x12.gameServer.Player\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x10gameServer.proto\x12\ngameServer\"\x07\n\x05\x45mpty\"\xe5\x01\n\x06Player\x12\x0e\n\x06health\x18\x01 \x01(\x05\x12\x0f\n\x07stamina\x18\x02 \x01(\x05\x12\x0c\n\x04mana\x18\x03 \x01(\x05\x12\x34\n\tspellbook\x18\x04 \x03(\x0b\x32!.gameServer.Player.SpellbookEntry\x12\r\n\x05level\x18\x05 \x01(\x05\x12\x0b\n\x03\x65xp\x18\x06 \x01(\x02\x12\x0c\n\x04xVal\x18\x07 \x01(\x05\x12\x0c\n\x04yVal\x18\x08 \x01(\x05\x12\x0c\n\x04name\x18\t \x01(\t\x1a\x30\n\x0eSpellbookEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"5\n\tDirection\x12\x13\n\x0bx_direction\x18\x01 \x01(\t\x12\x13\n\x0by_direction\x18\x02 \x01(\t\"2\n\x08Position\x12\x12\n\nx_position\x18\x01 \x01(\x05\x12\x12\n\ny_position\x18\x02 \x01(\x05\"\x1b\n\x06Health\x12\x11\n\thealthBar\x18\x01 \x01(\x05\"\x15\n\x05Magic\x12\x0c\n\x04mana\x18\x01 \x01(\x05\"\x1a\n\x07Stamina\x12\x0f\n\x07stamina\x18\x01 \x01(\x05\"\x18\n\x06\x41ttack\x12\x0e\n\x06\x64\x61mage\x18\x01 \x01(\x05\"v\n\tSpellBook\x12\x37\n\tspellbook\x18\x01 \x03(\x0b\x32$.gameServer.SpellBook.SpellbookEntry\x1a\x30\n\x0eSpellbookEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"\"\n\x04Pair\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"*\n\x03\x42\x61g\x12#\n\tequipment\x18\x01 \x03(\x0b\x32\x10.gameServer.Pair2\xeb\x01\n\x0bGameService\x12\x35\n\x04Move\x12\x15.gameServer.Direction\x1a\x14.gameServer.Position\"\x00\x12\x37\n\x0bMagicAttack\x12\x12.gameServer.Player\x1a\x12.gameServer.Player\"\x00\x12:\n\x0ePhysicalAttack\x12\x12.gameServer.Player\x1a\x12.gameServer.Player\"\x00\x12\x30\n\x04Heal\x12\x12.gameServer.Player\x1a\x12.gameServer.Player\"\x00\x62\x06proto3')
 )
 
 
+
+
+_EMPTY = _descriptor.Descriptor(
+  name='Empty',
+  full_name='gameServer.Empty',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=32,
+  serialized_end=39,
+)
 
 
 _PLAYER_SPELLBOOKENTRY = _descriptor.Descriptor(
@@ -59,8 +83,8 @@ _PLAYER_SPELLBOOKENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=214,
-  serialized_end=262,
+  serialized_start=223,
+  serialized_end=271,
 )
 
 _PLAYER = _descriptor.Descriptor(
@@ -145,8 +169,8 @@ _PLAYER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=33,
-  serialized_end=262,
+  serialized_start=42,
+  serialized_end=271,
 )
 
 
@@ -183,8 +207,8 @@ _DIRECTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=264,
-  serialized_end=317,
+  serialized_start=273,
+  serialized_end=326,
 )
 
 
@@ -221,8 +245,8 @@ _POSITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=319,
-  serialized_end=369,
+  serialized_start=328,
+  serialized_end=378,
 )
 
 
@@ -252,8 +276,8 @@ _HEALTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=371,
-  serialized_end=398,
+  serialized_start=380,
+  serialized_end=407,
 )
 
 
@@ -283,8 +307,8 @@ _MAGIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=400,
-  serialized_end=421,
+  serialized_start=409,
+  serialized_end=430,
 )
 
 
@@ -314,8 +338,8 @@ _STAMINA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=423,
-  serialized_end=449,
+  serialized_start=432,
+  serialized_end=458,
 )
 
 
@@ -345,8 +369,8 @@ _ATTACK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=451,
-  serialized_end=475,
+  serialized_start=460,
+  serialized_end=484,
 )
 
 
@@ -383,8 +407,8 @@ _SPELLBOOK_SPELLBOOKENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=214,
-  serialized_end=262,
+  serialized_start=223,
+  serialized_end=271,
 )
 
 _SPELLBOOK = _descriptor.Descriptor(
@@ -413,8 +437,8 @@ _SPELLBOOK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=477,
-  serialized_end=595,
+  serialized_start=486,
+  serialized_end=604,
 )
 
 
@@ -451,8 +475,8 @@ _PAIR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=597,
-  serialized_end=631,
+  serialized_start=606,
+  serialized_end=640,
 )
 
 
@@ -482,8 +506,8 @@ _BAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=633,
-  serialized_end=675,
+  serialized_start=642,
+  serialized_end=684,
 )
 
 _PLAYER_SPELLBOOKENTRY.containing_type = _PLAYER
@@ -491,6 +515,7 @@ _PLAYER.fields_by_name['spellbook'].message_type = _PLAYER_SPELLBOOKENTRY
 _SPELLBOOK_SPELLBOOKENTRY.containing_type = _SPELLBOOK
 _SPELLBOOK.fields_by_name['spellbook'].message_type = _SPELLBOOK_SPELLBOOKENTRY
 _BAG.fields_by_name['equipment'].message_type = _PAIR
+DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
 DESCRIPTOR.message_types_by_name['Player'] = _PLAYER
 DESCRIPTOR.message_types_by_name['Direction'] = _DIRECTION
 DESCRIPTOR.message_types_by_name['Position'] = _POSITION
@@ -502,6 +527,13 @@ DESCRIPTOR.message_types_by_name['SpellBook'] = _SPELLBOOK
 DESCRIPTOR.message_types_by_name['Pair'] = _PAIR
 DESCRIPTOR.message_types_by_name['Bag'] = _BAG
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
+  'DESCRIPTOR' : _EMPTY,
+  '__module__' : 'gameServer_pb2'
+  # @@protoc_insertion_point(class_scope:gameServer.Empty)
+  })
+_sym_db.RegisterMessage(Empty)
 
 Player = _reflection.GeneratedProtocolMessageType('Player', (_message.Message,), {
 
@@ -599,8 +631,8 @@ _GAMESERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=678,
-  serialized_end=913,
+  serialized_start=687,
+  serialized_end=922,
   methods=[
   _descriptor.MethodDescriptor(
     name='Move',
