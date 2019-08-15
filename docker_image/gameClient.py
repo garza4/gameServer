@@ -7,21 +7,24 @@ import grpc
 #stub = gameServer_pb2_grpc.GameServiceStub(channel)
 
 
-def createPlayer(mana, health, stamina,level,exp,xVal,yVal,name):
+def createPlayer(mana, health, stamina,level,exp,xVal,yVal,name,attack,defense):
+    
     player = gameServer_pb2.Player()
-    player.mana = mana
-    player.health = health
-    player.stamina = stamina
-    player.level = level
+    player.Stats.MANA = mana
+    player.Stats.HEALTH = health
+    player.Stats.STAMINA = stamina
+    player.Stats.LEVEL = level
     #print(player.level)
-    player.exp = exp
-    player.xVal = xVal
-    player.yVal = yVal
-    player.name = name
+    player.Stats.EXP = exp
+    player.Stats.XVAL = xVal
+    player.Stats.YVAL = yVal
+    player.Stats.NAME = name
+    player.Stats.ATTACK = attack
+    player.Stats.DEFENSE = defense
     return player
 
 def gameMagicAttack(stub,player,reqMagic):
-    player.mana = stub.MagicAttack(player).mana
+    player.stats.mana = stub.MagicAttack(player).stats.mana
     return player
 
 def playerMovement(player,stub):
@@ -32,21 +35,19 @@ def playerMovement(player,stub):
     direction.y_direction = controllerInput
     print(direction)
     position = stub.Move(direction)
-    player.xVal = position.x_position 
-    player.yVal = position.y_position
+    player.Stats.XVAL = position.x_position 
+    player.Stats.YVAL = position.y_position
         
 def gameHeal(stub, player):
-    return stub.Heal(player).health
+    return stub.Heal(player).Stats.HEALTH
 
 
 def run():
     with grpc.insecure_channel('localhost:50051') as channel:
         stub = gameServer_pb2_grpc.GameServiceStub(channel)
-        magic = gameServer_pb2.Magic()
-        magic.mana = 4
-        player1 = createPlayer(10,10,20,1,0,0,0,"Cooper")
+        player1 = createPlayer(10,10,20,1,0,0,0,"Cooper",10,10)
         playerMovement(player1,stub)
-        player1.health = gameHeal(stub,player1)
+        player1.Stats.HEALTH = gameHeal(stub,player1)
         print(player1)
         spellbook = {"Fireball" : 5, "Regenerate":5}
         

@@ -24,15 +24,21 @@ message Empty {}
 
 //the player object will have actions affect his/her stats.
 message Player{
-	int32 health = 1;
-	int32 stamina = 2;
-	int32 mana = 3;
-	map<string,int32> spellbook = 4;
-	int32 level = 5;
-	float exp = 6;
-	int32 xVal = 7;
-	int32 yVal = 8;
-	string name = 9;
+	map<string,int32> spellbook = 1;
+	enum Stats{
+		HEALTH = 0;
+		STAMINA = 1;
+		MANA = 2;
+		LEVEL = 3;
+		EXP = 4;
+		XVAL = 5;
+		YVAL = 6;
+		NAME = 7;
+		ATTACK = 8;
+		DEFENSE = 9;
+	}
+	Stats stats = 2;
+	
 }
 
 

@@ -35,14 +35,16 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
 
 
     def PhysicalAttack(self,request,context):
-        player  = copy,copy(request)
-        player.stamina -= int(request.stamina / request.level)
+        player = copy.copy(request)
+        player.Stats.STAMINA -= int(request.Stats.STAMINA / request.Stats.LEVEL) + request.Stats.DEFENSE
+        if player.Stats.HEALTH == 0:
+            print("RIP")
         return player
 
     def MagicAttack(self,request,context):
         player = copy.copy(request)
-        player.mana = int(math.sqrt(request.mana) + (request.level / request.stamina)) 
-        print("Damage done was - ", player.mana, "!")
+        player.Stats.MANA = int(math.sqrt(request.Stats.MANA) + (request.Stats.LEVEL / request.Stats.STAMINA)) 
+        print("Damage done was - ", player.Stats.MANA, "!")
         return player
     
     
@@ -50,9 +52,9 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     def Heal(self,request,context):
         #print(dir(request))
         player = copy.copy(request)
-        player.mana -= int((request.mana / request.level) + request.stamina)
-        player.health += int(math.sqrt(player.level) + request.stamina)
-        print("Restoring Health +++ ", player.health)
+        player.Stats.MANA -= int((request.Stats.MANA / request.LEVEL) + request.Stats.STAMINA)
+        player.Stats.HEALTH += int(math.sqrt(player.Stats.LEVEL) + request.Stats.STAMINA)
+        print("Restoring Health +++ ", player.Stats.HEALTH)
         return player
 
 def serve():
