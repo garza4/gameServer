@@ -25,15 +25,18 @@ def gameMagicAttack(stub,player,reqMagic):
     return player
 
 def playerMovement(player,stub):
-    while True:
-        controllerInput = input("Enter a direction to move : North South East West \n")
-        direction = gameServer_pb2.Direction()
-        direction.x_direction = controllerInput
-        direction.y_direction = controllerInput
-        print(direction)
-        position = stub.Move(direction)
-        player.xVal = position.x_position 
-        player.yVal = position.y_position
+    #while True:
+    controllerInput = input("Enter a direction to move : North South East West \n")
+    direction = gameServer_pb2.Direction()
+    direction.x_direction = controllerInput
+    direction.y_direction = controllerInput
+    print(direction)
+    position = stub.Move(direction)
+    player.xVal = position.x_position 
+    player.yVal = position.y_position
+        
+def gameHeal(stub, player):
+    return stub.Heal(player).health
 
 
 def run():
@@ -43,6 +46,7 @@ def run():
         magic.mana = 4
         player1 = createPlayer(10,10,20,1,0,0,0,"Cooper")
         playerMovement(player1,stub)
+        player1.health = gameHeal(stub,player1)
         print(player1)
         spellbook = {"Fireball" : 5, "Regenerate":5}
         

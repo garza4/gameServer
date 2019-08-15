@@ -48,26 +48,23 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     
     #use magic, gain health
     def Heal(self,request,context):
-        print(dir(request))
+        #print(dir(request))
         player = copy.copy(request)
         player.mana -= int((request.mana / request.level) + request.stamina)
         player.health += int(math.sqrt(player.level) + request.stamina)
+        print("Restoring Health +++ ", player.health)
         return player
-        print("Restoring Health ---")
-    #do damage to a given player
-    def DamageCalculation(self,request,context):
-        request.Player.health -= request.Attack
 
 def serve():
-    print("server")
+   #print("server")
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     gameServer_pb2_grpc.add_GameServiceServicer_to_server(GameServiceServer(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
     try:
         while True:
-            print(server)
-            print("server running")
+            #print(server)
+            #print("server running")
             time.sleep(60*60*24)
     except KeyboardInterrupt:
         server.stop()
