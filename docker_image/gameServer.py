@@ -5,15 +5,35 @@ import logging
 import time
 import math
 import copy
+import random
+import json
 from concurrent import futures
 
  
 class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     
-
+    #pass a json file of monsters?
+    enemy_list = {}
+    
+    #take request for which direction to move
     def Move(self, request, context):
-        
-        position = gameServer_pb2.Position()
+        position = position + directions_to_move(request)
+        gameServer_pb2.Position() = gameServer_pb2.Position() + position
+        if check_for_attack():
+            start_battle()
+        return position
+
+
+    def startAttack():
+
+    
+    def check_for_attack():
+        #mod by 3 so there is not a 50/50 chance of encountering an enemy
+        roll = random.randrange(1,20,1)
+        #return the result of this calculation
+        return roll % 3 == 0
+    
+    def directions_to_move(request):
         if request.x_direction == "North":
             position.x_position += 1
         if request.x_direction == "South":
@@ -31,8 +51,7 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
             position.y_position += 1
         if request.y_direction == "West":
             position.y_position -= 1
-        return position
-
+        return position    
 
     def PhysicalAttack(self,request,context):
         player = copy.copy(request)
