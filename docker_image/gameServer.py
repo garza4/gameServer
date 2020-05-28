@@ -18,13 +18,13 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     #take request for which direction to move
     def Move(self, request, context):
         position = position + directions_to_move(request)
-        gameServer_pb2.Position() = gameServer_pb2.Position() + position
+        #gameServer_pb2.Position() = gameServer_pb2.Position() + position
         if check_for_attack():
             start_battle()
         return position
 
 
-    def startAttack():
+    #def startAttack():
 
     
     def check_for_attack():
@@ -34,24 +34,25 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
         return roll % 3 == 0
     
     def directions_to_move(request):
-        if request.x_direction == "North":
-            position.x_position += 1
-        if request.x_direction == "South":
-            position.x_position -= 1
-        if request.x_direction == "East":
-            position.x_position += 1
-        if request.x_direction == "West":
-            position.x_position -= 1
-        
-        if request.y_direction == "North":
-            position.y_position += 1
-        if request.y_direction == "South":
-            position.y_position -= 1
-        if request.y_direction == "East":
-            position.y_position += 1
-        if request.y_direction == "West":
-            position.y_position -= 1
+         
+        switch_for_directions(request.x_direction, position.x_position
+        switch_for_directions(request.y_direction, position.y_position)
         return position    
+
+    
+    def switch_for_directions(direction_to_move, position):
+        return {
+        #North        
+        'N': lambda position: position + 1,
+        #South
+        'S': lambda position: position - 1, 
+        #East
+        'E': lambda position: position + 1,
+        #West
+        'W': lambda position: position - 1
+                
+        }.get(direction_to_move)(position)
+
 
     def PhysicalAttack(self,request,context):
         player = copy.copy(request)
@@ -76,22 +77,17 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
         print("Restoring Health +++ ", player.Stats.HEALTH)
         return player
 
-def serve():
-   #print("server")
+
+
+if __name__ == "__main__":
+    logging.basicConfig()
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     gameServer_pb2_grpc.add_GameServiceServicer_to_server(GameServiceServer(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
     try:
         while True:
-            #print(server)
-            #print("server running")
             time.sleep(60*60*24)
     except KeyboardInterrupt:
         server.stop()
-
-
-if __name__ == "__main__":
-    logging.basicConfig()
-    serve()
-    print("somethign")
+        print("Server Killed - RIP")
