@@ -2,6 +2,7 @@ import gameServer_pb2
 import gameServer_pb2_grpc
 import logging
 import grpc
+import random
 
 #channel = grpc.insecure_channel('localhost:50051')
 #stub = gameServer_pb2_grpc.GameServiceStub(channel)
@@ -37,6 +38,17 @@ def playerMovement(player,stub):
     position = stub.Move(direction)
     player.Stats.XVAL = position.x_position 
     player.Stats.YVAL = position.y_position
+    if position[1] is 1:
+        start_battle(player,enemy)
+
+def start_battle(player):
+    get_enemy()
+    #create battle scenarios based on stats of player and enemies
+
+def get_enemy():
+    enemy_list = {'1':'Cooper'}
+    random_enemy = random.randrange(1,len(enemy_list),1)
+    return enemy_list['1']
         
 def gameHeal(stub, player):
     return stub.Heal(player).Stats.HEALTH

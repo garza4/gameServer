@@ -17,30 +17,29 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     
     #take request for which direction to move
     def Move(self, request, context):
-        position = position + directions_to_move(request)
+        position = directions_to_move(request)
         #gameServer_pb2.Position() = gameServer_pb2.Position() + position
         if check_for_attack():
-            start_battle()
-        return position
+            return (position,1)
+        return (position,0)
 
+        
 
-    #def startAttack():
 
     
-    def check_for_attack():
+    def check_for_attack(self):
         #mod by 3 so there is not a 50/50 chance of encountering an enemy
-        roll = random.randrange(1,20,1)
         #return the result of this calculation
-        return roll % 3 == 0
+        return random.randrange(1,20,1) % 3 == 0
     
-    def directions_to_move(request):
-         
-        switch_for_directions(request.x_direction, position.x_position
+    def directions_to_move(self,request):
+        position = gameServer_pb2.Position()
+        switch_for_directions(request.x_direction, position.x_position)
         switch_for_directions(request.y_direction, position.y_position)
         return position    
 
     
-    def switch_for_directions(direction_to_move, position):
+    def switch_for_directions(self, direction_to_move, position):
         return {
         #North        
         'N': lambda position: position + 1,
