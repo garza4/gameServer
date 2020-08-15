@@ -38,7 +38,7 @@ def playerMovement(player,stub):
     position = stub.Move(direction)
     player.Stats.XVAL = position.x_position 
     player.Stats.YVAL = position.y_position
-    if position[1] is 1:
+    if position[1] == 1:
         start_battle(player,enemy)
 
 def start_battle(player):

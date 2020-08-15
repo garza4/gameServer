@@ -13,7 +13,7 @@ from concurrent import futures
 class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
     
     #pass a json file of monsters?
-    enemy_list = {}
+    _enemy_list = {}
     
     #take request for which direction to move
     def Move(self, request, context):
@@ -24,8 +24,6 @@ class GameServiceServer(gameServer_pb2_grpc.GameServiceServicer):
         return (position,0)
 
         
-
-
     
     def check_for_attack(self):
         #mod by 3 so there is not a 50/50 chance of encountering an enemy
